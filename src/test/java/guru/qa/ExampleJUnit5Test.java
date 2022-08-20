@@ -16,8 +16,9 @@ public class ExampleJUnit5Test {
 
   @BeforeEach
   void beforeTest() {
-    System.out.println("  this is the @BeforeEach");
+    System.out.println("   this is the @BeforeEach");
   }
+
 
   @AfterEach
   void afterTest() {
