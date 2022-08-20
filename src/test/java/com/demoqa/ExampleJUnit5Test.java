@@ -1,4 +1,4 @@
-package guru.qa;
+package com.demoqa;
 
 import org.junit.jupiter.api.*;
 
