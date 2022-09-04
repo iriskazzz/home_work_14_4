@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class PracticeFormTest {
+public class RegistrationFormTest {
 
   @BeforeAll
   static void configure() {
@@ -22,15 +22,21 @@ public class PracticeFormTest {
   @Test
   void fillPracticeForm() {
     open("/automation-practice-form");
+    $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+    executeJavaScript("$('footer').remove()");
+    executeJavaScript("$('#fixedban').remove()");
+
     $("#firstName").setValue("Irina");
     $("#lastName").setValue("Petrova");
     $("#userEmail").setValue("ira@ya.ru");
     $("#genterWrapper").$(byText("Female")).click();
     $("#userNumber").setValue("1234567889");
+
     $("#dateOfBirthInput").click();
     $(".react-datepicker__month-select").selectOption("April");
     $(".react-datepicker__year-select").selectOption("1995");
-    $(".react-datepicker__day--015").click();
+    $(".react-datepicker__day--015:not(.react-datepicker__day--outside-month)").click();
+
     $("#subjectsInput").setValue("Economics").pressEnter();
     $("#hobbiesWrapper").scrollTo();
     $("#hobbiesWrapper").$(byText("Music")).click();
@@ -44,6 +50,7 @@ public class PracticeFormTest {
     $("#submit").click();
 
     $(".modal-dialog").should(appear);
+    $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
     $(".table-responsive").shouldHave(
             text("Irina Petrova"),
             text("ira@ya.ru"),
@@ -55,5 +62,8 @@ public class PracticeFormTest {
             text("foto.png"),
             text("Sochi"),
             text("Haryana Karnal"));
+
+//    $(".table-responsive").$(byText("Date of Birth")).parent()
+//            .shouldHave(text("15 April,1995"));
   }
 }
