@@ -5,11 +5,6 @@ import com.demoqa.pages.RegistrationFormPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-
 public class RegistrationFormPageObjectsTest {
 
   RegistrationFormPage registrationFormPage = new RegistrationFormPage();
@@ -30,7 +25,7 @@ public class RegistrationFormPageObjectsTest {
             .setBirthDate("15", "April", "1995")
             .setSubjects("Economics")
             .setHobbies("Music")
-            .setPicture("img/foto.png")
+            .setPicture("foto.png")
             .setCurrentAddress("Sochi")
             .setState("Haryana")
             .setCity("Karnal");

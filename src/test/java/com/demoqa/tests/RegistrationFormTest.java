@@ -1,7 +1,6 @@
 package com.demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
-import com.demoqa.pages.RegistrationFormPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -41,7 +40,7 @@ public class RegistrationFormTest {
     $("#subjectsInput").setValue("Economics").pressEnter();
     $("#hobbiesWrapper").scrollTo();
     $("#hobbiesWrapper").$(byText("Music")).click();
-    $("#uploadPicture").uploadFromClasspath("img/foto.png");
+    $("#uploadPicture").uploadFromClasspath("foto.png");
     $("#currentAddress").setValue("Sochi");
     $("#state").click();
     $("#stateCity-wrapper").$(byText("Haryana")).click();
