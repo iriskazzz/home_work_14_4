@@ -39,7 +39,7 @@ public class RegistrationFormWithCommentsTest {
     $("#subjectsInput").setValue("Economics").pressEnter();
     $("#hobbiesWrapper").scrollTo();
     $("#hobbiesWrapper").$(byText("Music")).click();
-    $("#uploadPicture").uploadFromClasspath("img/foto.png");
+    $("#uploadPicture").uploadFromClasspath("foto.png");
     $("#currentAddress").setValue("Sochi");
     $("#state").click();
     $("#stateCity-wrapper").$(byText("Haryana")).click();
